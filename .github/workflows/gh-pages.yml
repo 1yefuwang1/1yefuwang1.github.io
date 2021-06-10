@@ -19,14 +19,13 @@ jobs:
         with:
           hugo-version: 'latest'
           # extended: true
-
-      - name: Build
-        run: hugo -D
-
       - name: Update theme
         # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
         run: git submodule update --init --recursive
 
+      - name: Build
+        run: hugo -D
+        
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
